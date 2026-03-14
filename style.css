@@ -34,9 +34,17 @@ body {
 }
 
 @keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* --- Utilities & Glassmorphism --- */
@@ -84,7 +92,7 @@ header h1 {
     font-weight: 600;
     margin-bottom: 1.5rem;
     color: white;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* --- Navigation & Buttons --- */
@@ -111,7 +119,7 @@ nav {
 .nav-btn:hover {
     background: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .nav-btn.active {
@@ -138,20 +146,50 @@ nav {
     transform: scale(0.95);
 }
 
-.btn-primary { background: var(--primary); color: white; }
-.btn-primary:hover { background: var(--primary-hover); }
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
 
-.btn-secondary { background: var(--text-muted); color: white; }
-.btn-secondary:hover { background: #4b5563; }
+.btn-primary:hover {
+    background: var(--primary-hover);
+}
 
-.btn-success { background: var(--success); color: white; }
-.btn-success:hover { background: #059669; }
+.btn-secondary {
+    background: var(--text-muted);
+    color: white;
+}
 
-.btn-warning { background: var(--warning); color: white; }
-.btn-warning:hover { background: var(--warning-hover); }
+.btn-secondary:hover {
+    background: #4b5563;
+}
 
-.btn-danger { background: var(--danger); color: white; }
-.btn-danger:hover { background: var(--danger-hover); }
+.btn-success {
+    background: var(--success);
+    color: white;
+}
+
+.btn-success:hover {
+    background: #059669;
+}
+
+.btn-warning {
+    background: var(--warning);
+    color: white;
+}
+
+.btn-warning:hover {
+    background: var(--warning-hover);
+}
+
+.btn-danger {
+    background: var(--danger);
+    color: white;
+}
+
+.btn-danger:hover {
+    background: var(--danger-hover);
+}
 
 /* --- Forms & Inputs --- */
 .form-container {
@@ -172,7 +210,7 @@ nav {
     padding: 0.5rem 1rem;
     flex: 1;
     min-width: 200px;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
     border: 1px solid transparent;
     transition: border 0.3s;
 }
@@ -208,7 +246,7 @@ nav {
     backdrop-filter: blur(12px);
     border-radius: 16px;
     padding: 1.5rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid var(--glass-border);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
@@ -219,7 +257,7 @@ nav {
 
 .libro:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
 /* Decoration inside card */
@@ -292,7 +330,7 @@ nav {
     color: var(--text-main);
     padding: 1rem 1.5rem;
     border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -302,23 +340,56 @@ nav {
     border-left: 4px solid var(--primary);
 }
 
-.toast.success { border-left-color: var(--success); }
-.toast.info { border-left-color: var(--primary); }
-.toast.warning { border-left-color: var(--warning); }
+.toast.success {
+    border-left-color: var(--success);
+}
 
-.toast i { font-size: 1.5rem; }
-.toast.success i { color: var(--success); }
-.toast.info i { color: var(--primary); }
-.toast.warning i { color: var(--warning); }
+.toast.info {
+    border-left-color: var(--primary);
+}
+
+.toast.warning {
+    border-left-color: var(--warning);
+}
+
+.toast i {
+    font-size: 1.5rem;
+}
+
+.toast.success i {
+    color: var(--success);
+}
+
+.toast.info i {
+    color: var(--primary);
+}
+
+.toast.warning i {
+    color: var(--warning);
+}
 
 @keyframes slideInRight {
-    from { transform: translateX(100%); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 @keyframes fadeOutRight {
-    from { transform: translateX(0); opacity: 1; }
-    to { transform: translateX(100%); opacity: 0; }
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
 }
 
 /* --- Modal Overlay --- */
@@ -328,7 +399,7 @@ nav {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(5px);
     z-index: 2000;
     display: flex;
@@ -368,7 +439,7 @@ nav {
 
 .modal .input-group {
     margin-bottom: 1rem;
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .modal-actions {
@@ -384,8 +455,15 @@ nav {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .stagger-item {
@@ -395,8 +473,15 @@ nav {
 }
 
 @keyframes fadeInStagger {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* --- Footer --- */

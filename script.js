@@ -14,7 +14,7 @@ function mostrarSeccion(seccion) {
     const adminBtn = document.getElementById("btn-admin");
     const secUsuario = document.getElementById('usuario');
     const secAdmin = document.getElementById('admin');
-    
+
     // Manage active state of buttons
     if (seccion === 'usuario') {
         usuarioBtn.classList.add('active');
@@ -27,11 +27,11 @@ function mostrarSeccion(seccion) {
     // Rather than just toggling classes, we remove the elements, trigger reflow, and add them back to restart animations if we wanted,
     // but a simple class toggle with CSS animations works very well here.
     document.querySelectorAll('.seccion').forEach(s => s.classList.add('oculto'));
-    
+
     // Small delay to allow CSS reflow to catch the display change
     const targetSection = document.getElementById(seccion);
     targetSection.classList.remove('oculto');
-    
+
     actualizarVista();
 }
 
@@ -40,7 +40,7 @@ function actualizarVista() {
     // Vista Usuario
     let listaUsuario = document.getElementById("listaLibrosUsuario");
     listaUsuario.innerHTML = "";
-    
+
     libros.forEach((libro, i) => {
         const badgeClass = libro.disponible ? "status-available" : "status-unavailable";
         const badgeIcon = libro.disponible ? "ph-check-circle" : "ph-x-circle";
@@ -76,7 +76,7 @@ function actualizarVista() {
     // Vista Admin
     let listaAdmin = document.getElementById("listaLibrosAdmin");
     listaAdmin.innerHTML = "";
-    
+
     libros.forEach((libro, i) => {
         const badgeClass = libro.disponible ? "status-available" : "status-unavailable";
         const badgeIcon = libro.disponible ? "ph-check-circle" : "ph-x-circle";
@@ -119,15 +119,15 @@ function devolverLibro(i) {
 }
 
 // --- Admin Actions ---
-document.getElementById("formLibro").addEventListener("submit", function(e) {
+document.getElementById("formLibro").addEventListener("submit", function (e) {
     e.preventDefault();
     let titulo = document.getElementById("titulo").value;
     let autor = document.getElementById("autor").value;
-    
+
     libros.push({ titulo, autor, disponible: true });
     mostrarToast("Libro agregado exitosamente", "success");
     actualizarVista();
-    
+
     this.reset();
 });
 
@@ -153,10 +153,10 @@ function cerrarModal() {
 
 function guardarEdicion() {
     if (indiceEdicion === -1) return;
-    
+
     let nuevoTitulo = document.getElementById("edit-titulo").value.trim();
     let nuevoAutor = document.getElementById("edit-autor").value.trim();
-    
+
     if (nuevoTitulo && nuevoAutor) {
         libros[indiceEdicion].titulo = nuevoTitulo;
         libros[indiceEdicion].autor = nuevoAutor;
@@ -169,7 +169,7 @@ function guardarEdicion() {
 }
 
 // Close modal on overlay click
-document.getElementById("edit-modal").addEventListener("click", function(e) {
+document.getElementById("edit-modal").addEventListener("click", function (e) {
     if (e.target === this) {
         cerrarModal();
     }
@@ -180,16 +180,16 @@ function mostrarToast(mensaje, tipo = 'info') {
     const container = document.getElementById('toast-container');
     const toast = document.createElement('div');
     toast.className = `toast ${tipo}`;
-    
+
     let iconClass = 'ph-info';
-    if(tipo === 'success') iconClass = 'ph-check-circle';
-    if(tipo === 'warning') iconClass = 'ph-warning-circle';
+    if (tipo === 'success') iconClass = 'ph-check-circle';
+    if (tipo === 'warning') iconClass = 'ph-warning-circle';
 
     toast.innerHTML = `
         <i class="ph ${iconClass}"></i>
         <span>${mensaje}</span>
     `;
-    
+
     container.appendChild(toast);
 
     // Auto remove after 3 seconds

@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema Bibliotecario</title>
-    
+
     <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header class="glass">
         <h1><i class="ph ph-books"></i> Biblioteca Virtual</h1>
@@ -38,7 +40,7 @@
         <!-- Sección Administrador -->
         <section id="admin" class="seccion fade-in oculto">
             <h2 class="section-title">Panel de Administrador</h2>
-            
+
             <form id="formLibro" class="glass form-container">
                 <div class="input-group">
                     <i class="ph ph-book-open"></i>
@@ -52,7 +54,7 @@
                     <i class="ph ph-plus-circle"></i> Agregar Libro
                 </button>
             </form>
-            
+
             <div id="listaLibrosAdmin" class="grid-libros"></div>
         </section>
     </main>
@@ -85,4 +87,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
