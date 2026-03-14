@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Bibliotecario</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="glass">
+        <h1><i class="ph ph-books"></i> Biblioteca Virtual</h1>
+        <nav>
+            <button onclick="mostrarSeccion('usuario')" class="nav-btn active" id="btn-usuario">
+                <i class="ph ph-user"></i> Usuario
+            </button>
+            <button onclick="mostrarSeccion('admin')" class="nav-btn" id="btn-admin">
+                <i class="ph ph-gear"></i> Administrador
+            </button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Sección Usuario -->
+        <section id="usuario" class="seccion fade-in active">
+            <h2 class="section-title">Panel de Usuario</h2>
+            <div id="listaLibrosUsuario" class="grid-libros"></div>
+        </section>
+
+        <!-- Sección Administrador -->
+        <section id="admin" class="seccion fade-in oculto">
+            <h2 class="section-title">Panel de Administrador</h2>
+            
+            <form id="formLibro" class="glass form-container">
+                <div class="input-group">
+                    <i class="ph ph-book-open"></i>
+                    <input type="text" id="titulo" placeholder="Título del libro" required>
+                </div>
+                <div class="input-group">
+                    <i class="ph ph-pen-nib"></i>
+                    <input type="text" id="autor" placeholder="Autor" required>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="ph ph-plus-circle"></i> Agregar Libro
+                </button>
+            </form>
+            
+            <div id="listaLibrosAdmin" class="grid-libros"></div>
+        </section>
+    </main>
+
+    <footer class="glass">
+        <p>© 2026 Biblioteca Virtual - Desarrollado por Carlos</p>
+    </footer>
+
+    <!-- Toast Notifications Container -->
+    <div id="toast-container"></div>
+
+    <!-- Modal for Editing Book -->
+    <div id="edit-modal" class="modal-overlay oculto">
+        <div class="modal glass fade-in-up">
+            <h3>Editar Libro</h3>
+            <div class="input-group">
+                <i class="ph ph-book-open"></i>
+                <input type="text" id="edit-titulo" placeholder="Nuevo título">
+            </div>
+            <div class="input-group">
+                <i class="ph ph-pen-nib"></i>
+                <input type="text" id="edit-autor" placeholder="Nuevo autor">
+            </div>
+            <div class="modal-actions">
+                <button onclick="cerrarModal()" class="btn btn-secondary">Cancelar</button>
+                <button onclick="guardarEdicion()" class="btn btn-primary">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
