@@ -120,7 +120,7 @@ function devolverLibro(i) {
 
 // --- Admin Actions ---
 document.getElementById("formLibro").addEventListener("submit", function (e) {
-    e.preventDefault();
+    //e.preventDefault();
     let titulo = document.getElementById("titulo").value;
     let autor = document.getElementById("autor").value;
 

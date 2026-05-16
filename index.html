@@ -41,7 +41,7 @@
         <section id="admin" class="seccion fade-in oculto">
             <h2 class="section-title">Panel de Administrador</h2>
 
-            <form id="formLibro" class="glass form-container">
+            <form id="formLibro" class="glass form-container" action="guardar.php" method="POST">
                 <div class="input-group">
                     <i class="ph ph-book-open"></i>
                     <input type="text" id="titulo" placeholder="Título del libro" required>
@@ -54,6 +54,16 @@
                     <i class="ph ph-plus-circle"></i> Agregar Libro
                 </button>
             </form>
+
+            
+                <input type="text" id="titulo" name="titulo" placeholder="Título del libro" required>
+                <input type="text" id="autor" name="autor" placeholder="Autor" required>
+                <div class="input-group">
+                    <input type="text" name="categoria" placeholder="Categoría" required>
+                </div>
+
+                <button type="submit">Guardar Libro</button>
+           
 
             <div id="listaLibrosAdmin" class="grid-libros"></div>
         </section>
