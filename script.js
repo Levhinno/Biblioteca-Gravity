@@ -1,10 +1,4 @@
-let libros = [
-    { titulo: "Cien Años de Soledad", autor: "Gabriel García Márquez", disponible: true },
-    { titulo: "Don Quijote de la Mancha", autor: "Miguel de Cervantes", disponible: true },
-    { titulo: "La Odisea", autor: "Homero", disponible: false },
-    { titulo: "1984", autor: "George Orwell", disponible: true },
-    { titulo: "Rayuela", autor: "Julio Cortázar", disponible: false }
-];
+
 
 let indiceEdicion = -1; // Keep track of the book being edited in the modal
 
