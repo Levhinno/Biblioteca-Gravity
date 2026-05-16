@@ -18,11 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $autor = $_POST['autor'];
     $categoria = $_POST['categoria'];
 
-    $sql = "INSERT INTO libros (titulo, autor, categoria)
+    $sql = "DELETE FROM libros (titulo, autor, categoria)
     VALUES ('$titulo', '$autor', '$categoria')";
 
     if ($conexion->query($sql) === TRUE) {
-        echo "Libro guardado correctamente";
+        echo "Libro eliminado correctamente";
     } else {
         echo "Error: " . $conexion->error;
     }

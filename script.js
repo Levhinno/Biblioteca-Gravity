@@ -155,9 +155,28 @@ document.getElementById("formLibro").addEventListener("submit", function (e) {
 
 function eliminarLibro(i) {
     const title = libros[i].titulo;
-    libros.splice(i, 1);
-    mostrarToast(`Libro "${title}" eliminado`, "warning");
-    actualizarVista();
+
+    const formData = new FormData();
+    formData.append("titulo", title);
+
+    fetch("http://localhost/Biblioteca-Gravity/Eliminar.php", {
+        method: "POST",
+        body: formData
+    })
+        .then(response => response.text())
+        .then(data => {
+            if (data.includes("correctamente")) {
+                libros.splice(i, 1);
+                mostrarToast(`Libro "${title}" eliminado de la base de datos`, "warning");
+                actualizarVista();
+            } else {
+                mostrarToast("Error al eliminar: " + data, "warning");
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            mostrarToast("No se pudo conectar con Apache.", "warning");
+        });
 }
 
 // --- Modal Logic (Replacing prompt) ---
