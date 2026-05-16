@@ -15,11 +15,8 @@ include 'Conexion.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $titulo = $_POST['titulo'];
-    $autor = $_POST['autor'];
-    $categoria = $_POST['categoria'];
 
-    $sql = "DELETE FROM libros (titulo, autor, categoria)
-    VALUES ('$titulo', '$autor', '$categoria')";
+    $sql = "DELETE FROM libros WHERE titulo = '$titulo'";
 
     if ($conexion->query($sql) === TRUE) {
         echo "Libro eliminado correctamente";
