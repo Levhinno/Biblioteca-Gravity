@@ -120,15 +120,37 @@ function devolverLibro(i) {
 
 // --- Admin Actions ---
 document.getElementById("formLibro").addEventListener("submit", function (e) {
-    //e.preventDefault();
-    let titulo = document.getElementById("titulo").value;
-    let autor = document.getElementById("autor").value;
+    e.preventDefault();
 
-    libros.push({ titulo, autor, disponible: true });
-    mostrarToast("Libro agregado exitosamente", "success");
-    actualizarVista();
+    const titulo = document.getElementById("titulo").value;
+    const autor = document.getElementById("autor").value;
+    const categoria = document.getElementById("categoria").value;
 
-    this.reset();
+    const formData = new FormData();
+    formData.append("titulo", titulo);
+    formData.append("autor", autor);
+    formData.append("categoria", categoria);
+
+    // Usar URL absoluta a Apache para evitar el error 405 de otros servidores
+    fetch("http://localhost/Biblioteca-Gravity/guardar.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        if (data.includes("correctamente")) {
+            libros.push({ titulo, autor, categoria, disponible: true });
+            mostrarToast("Libro guardado en la base de datos", "success");
+            actualizarVista();
+            this.reset();
+        } else {
+            mostrarToast("Error: " + data, "warning");
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        mostrarToast("No se pudo conectar con Apache. Asegúrate de que XAMPP esté corriendo.", "warning");
+    });
 });
 
 function eliminarLibro(i) {
