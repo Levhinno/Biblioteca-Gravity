@@ -136,21 +136,21 @@ document.getElementById("formLibro").addEventListener("submit", function (e) {
         method: "POST",
         body: formData
     })
-    .then(response => response.text())
-    .then(data => {
-        if (data.includes("correctamente")) {
-            libros.push({ titulo, autor, categoria, disponible: true });
-            mostrarToast("Libro guardado en la base de datos", "success");
-            actualizarVista();
-            this.reset();
-        } else {
-            mostrarToast("Error: " + data, "warning");
-        }
-    })
-    .catch(error => {
-        console.error("Error:", error);
-        mostrarToast("No se pudo conectar con Apache. Asegúrate de que XAMPP esté corriendo.", "warning");
-    });
+        .then(response => response.text())
+        .then(data => {
+            if (data.includes("correctamente")) {
+                libros.push({ titulo, autor, categoria, disponible: true });
+                mostrarToast("Libro guardado en la base de datos", "success");
+                actualizarVista();
+                this.reset();
+            } else {
+                mostrarToast("Error: " + data, "warning");
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            mostrarToast("No se pudo conectar con Apache. Asegúrate de que XAMPP esté corriendo.", "warning");
+        });
 });
 
 function eliminarLibro(i) {
