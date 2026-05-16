@@ -242,3 +242,5 @@ function mostrarToast(mensaje, tipo = 'info') {
 
 // Inicializar la vista por defecto
 document.addEventListener("DOMContentLoaded", actualizarVista);
+
+
